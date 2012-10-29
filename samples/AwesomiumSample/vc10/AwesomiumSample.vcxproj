@@ -113,7 +113,6 @@
     <ClCompile Include="..\src\AwesomiumSampleApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\CinderAwesomium.h" />
     <ClInclude Include="..\include\Resources.h" />
   </ItemGroup>
   <ItemGroup>
