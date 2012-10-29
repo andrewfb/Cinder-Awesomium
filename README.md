@@ -4,10 +4,10 @@ Cinder-Awesomium
 Cinder block for the Awesomium web browser library.
 
 
-Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders.
+Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders. Please refer to the [Awesomium license](https://raw.github.com/paulhoux/Cinder-Awesomium/master/LICENSE.txt) for more information on licensing fees. Awesomium is NOT free software!
 
 
-To use this block with a release version of Cinder, clone the Cinder-Awesomium GIT repository to the ```cinder_master/blocks/awesomium``` folder.
+To use this block with a release version of Cinder, clone the Cinder-Awesomium repository to the ```cinder_master/blocks/awesomium``` folder.
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
@@ -15,7 +15,7 @@ To use this block with a release version of Cinder, clone the Cinder-Awesomium G
 
 Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\awesomium" folder.
 
-To use this block with a forked GIT version of Cinder, add the Cinder-Awesomium GIT repository as a submodule:
+To use this block with a forked GIT version of Cinder, add the Cinder-Awesomium repository as a submodule:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
@@ -24,16 +24,12 @@ To use this block with a forked GIT version of Cinder, add the Cinder-Awesomium 
 
 To use the block in your project:
 * Add the following folders to your include folders: 
-** ```cinder_master\blocks```
-** ```cinder_master\blocks\awesomium\include``` 
+ * ```cinder_master\blocks```
+ * ```cinder_master\blocks\awesomium\include``` 
 * Add the following folder to your library folders: ```cinder_master\blocks\awesomium\build\lib```
 * Add the following .lib files to your dependencies: ```awesomium.lib```
 * Add this include statement at the top of your .cpp files: ```#include "awesomium/CinderAwesomium.h"```
 * Copy ALL files from ```cinder_master\blocks\awesomium\build\bin``` to your Debug and Release folders.
-
-
-
-Please refer to the Awesomium license for more information on licensing fees. Awesomium is NOT free software!
 
 
 Copyright (c) 2010-2012, Paul Houx - All rights reserved.
