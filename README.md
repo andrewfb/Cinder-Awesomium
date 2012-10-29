@@ -7,7 +7,8 @@ Cinder block for the Awesomium web browser library.
 Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders. Please refer to the [Awesomium license](https://raw.github.com/paulhoux/Cinder-Awesomium/master/LICENSE.txt) for more information on licensing fees. Awesomium is NOT free software!
 
 
-To use this block with a release version of Cinder, clone the Cinder-Awesomium repository to the ```cinder_master/blocks/awesomium``` folder.
+#####Using this block with a release version of Cinder
+Clone the Awesomium block to your Cinder folder:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
@@ -15,14 +16,14 @@ To use this block with a release version of Cinder, clone the Cinder-Awesomium r
 
 Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\awesomium" folder.
 
-To use this block with a forked GIT version of Cinder, add the Cinder-Awesomium repository as a submodule:
+#####Using this block with a forked GIT version of Cinder
+Add the Awesomium block as a submodule to your Cinder fork:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
 * Add the Awesomium block: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/awesomium```
 
-
-To use the block in your project:
+#####Adding the block to your project
 * Add the following folders to your include folders: 
  * ```cinder_master\blocks```
  * ```cinder_master\blocks\awesomium\include``` 
@@ -31,7 +32,7 @@ To use the block in your project:
 * Add this include statement at the top of your .cpp files: ```#include "awesomium/CinderAwesomium.h"```
 * Copy ALL files from ```cinder_master\blocks\awesomium\build\bin``` to your Debug and Release folders.
 
-
+#####Copyright notice
 Copyright (c) 2010-2012, Paul Houx - All rights reserved.
 This code is intended for use with the Cinder C++ library: http://libcinder.org
 
