@@ -174,6 +174,10 @@ ci::Surface toSurface( Awesomium::BitmapSurface* surface )
 
 	// create the Surface by copying the data directly 
 	return ci::Surface( (uint8_t*) surface->buffer(), surface->width(), surface->height(), surface->row_span(), ci::SurfaceChannelOrder::BGRA );
+
+	// TODO: a more efficient way to render the Surface would be to create a ph::awesomium::Surface class that extends Awesomium::Surface,
+	// and use the Paint and Scroll methods to efficiently copy the changed portion. Then use Awesomium::WebCore::set_surface_factory() 
+	// to only create Cinder-compatible surfaces.
 }
 
 inline ci::Surface toSurface( Awesomium::WebView* webview )
@@ -191,6 +195,10 @@ ci::gl::Texture toTexture( Awesomium::BitmapSurface* surface, ci::gl::Texture::F
 
 	// create the gl::Texture by copying the data directly
 	return ci::gl::Texture( surface->buffer(), GL_BGRA, surface->width(), surface->height(), format );
+
+	// TODO: a more efficient way to render the Surface would be to create a ph::awesomium::Texture class that extends Awesomium::Surface,
+	// and use the Paint and Scroll methods to efficiently copy the changed portion. Then use Awesomium::WebCore::set_surface_factory() 
+	// to only create Cinder-compatible surfaces.
 }
 
 inline ci::gl::Texture toTexture( Awesomium::WebView* webview, ci::gl::Texture::Format format=ci::gl::Texture::Format() )
@@ -208,10 +216,10 @@ inline bool isDirty( Awesomium::WebView* webview )
 	return surface->is_dirty();
 }
 
-Awesomium::WebKeyboardEvent toKeyDown( ci::app::KeyEvent event )
+Awesomium::WebKeyboardEvent toKeyEvent( ci::app::KeyEvent event, Awesomium::WebKeyboardEvent::Type type )
 {
 	Awesomium::WebKeyboardEvent evt;
-	evt.type = Awesomium::WebKeyboardEvent::kTypeKeyDown;
+	evt.type = type;
 	evt.virtual_key_code = getWebKeyFromKeyEvent( event );
 	evt.native_key_code = event.getNativeKeyCode();
 	evt.text[0] = event.getChar();
@@ -222,26 +230,18 @@ Awesomium::WebKeyboardEvent toKeyDown( ci::app::KeyEvent event )
 	strcpy_s<20>(evt.key_identifier, buf);
     delete[] buf;
 
-	// TODO: modifiers
+	evt.modifiers = 0;
 
-	return evt;
-}
-
-Awesomium::WebKeyboardEvent toKeyUp( ci::app::KeyEvent event )
-{
-	Awesomium::WebKeyboardEvent evt;
-	evt.type = Awesomium::WebKeyboardEvent::kTypeKeyUp;
-	evt.virtual_key_code = getWebKeyFromKeyEvent( event );
-	evt.native_key_code = event.getNativeKeyCode();
-	evt.text[0] = event.getChar();
-    evt.unmodified_text[0] = event.getChar();
-
-	char* buf = new char[20];
-	Awesomium::GetKeyIdentifierFromVirtualKeyCode(evt.virtual_key_code, &buf);
-	strcpy_s<20>(evt.key_identifier, buf);
-    delete[] buf;
-
-	// TODO: modifiers
+	if( event.isAltDown() )
+		evt.modifiers |= Awesomium::WebKeyboardEvent::kModAltKey;
+	if( event.isControlDown() )
+		evt.modifiers |= Awesomium::WebKeyboardEvent::kModControlKey;
+	if( event.isMetaDown() )
+		evt.modifiers |= Awesomium::WebKeyboardEvent::kModMetaKey;
+	if( event.isShiftDown() )
+		evt.modifiers |= Awesomium::WebKeyboardEvent::kModShiftKey;
+	//if( event.isKeypadDown() )	// there is no Cinder isKeypadDown() method at this time
+	//	evt.modifiers |= Awesomium::WebKeyboardEvent::kModIsKeypad;
 
 	return evt;
 }
@@ -257,7 +257,7 @@ Awesomium::WebKeyboardEvent toKeyChar( ci::app::KeyEvent event )
     evt.unmodified_text[0] = event.getChar();
 
 	return evt;
-}
+} 
 
 // Utility functions that take care of event handling
 
@@ -265,7 +265,7 @@ Awesomium::WebKeyboardEvent toKeyChar( ci::app::KeyEvent event )
 inline void handleKeyDown( Awesomium::WebView *view, ci::app::KeyEvent event )
 {
 	view->Focus();
-	view->InjectKeyboardEvent( toKeyDown( event ) );
+	view->InjectKeyboardEvent( toKeyEvent( event, Awesomium::WebKeyboardEvent::kTypeKeyDown ) );
 	view->InjectKeyboardEvent( toKeyChar( event ) );
 }
 
@@ -273,7 +273,7 @@ inline void handleKeyDown( Awesomium::WebView *view, ci::app::KeyEvent event )
 inline void handleKeyUp( Awesomium::WebView *view, ci::app::KeyEvent event )
 {	
 	view->Focus();
-	view->InjectKeyboardEvent( toKeyUp( event ) );
+	view->InjectKeyboardEvent( toKeyEvent( event, Awesomium::WebKeyboardEvent::kTypeKeyUp ) );
 }
 
 //! sends a Cinder MouseMove event to the WebView
