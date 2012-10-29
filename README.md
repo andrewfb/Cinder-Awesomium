@@ -4,7 +4,7 @@ Cinder-Awesomium
 Cinder block for the Awesomium web browser library.
 
 
-To use this block with a release version of Cinder, clone the Cinder-Awesomium GIT repository to the ```cinder/blocks/awesomium``` folder.
+To use this block with a release version of Cinder, clone the Cinder-Awesomium GIT repository to the ```cinder_master/blocks/awesomium``` folder.
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
@@ -20,8 +20,11 @@ To use this block with a forked GIT version of Cinder, add the Cinder-Awesomium 
 
 
 To use the block in your project:
-* Add the following folder to your include folders: ```cinder_master\blocks```
+* Add the following folders to your include folders: 
+** ```cinder_master\blocks```
+** ```cinder_master\blocks\awesomium\include``` 
 * Add the following folder to your library folders: ```cinder_master\blocks\awesomium\build\lib```
+* Add the following .lib files to your dependencies: ```awesomium.lib```
 * Add this include statement at the top of your .cpp files: ```#include "awesomium/CinderAwesomium.h"```
 * Copy ALL files from ```cinder_master\blocks\awesomium\build\bin``` to your Debug and Release folders.
 
