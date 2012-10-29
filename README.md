@@ -4,6 +4,9 @@ Cinder-Awesomium
 Cinder block for the Awesomium web browser library.
 
 
+Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders.
+
+
 To use this block with a release version of Cinder, clone the Cinder-Awesomium GIT repository to the ```cinder_master/blocks/awesomium``` folder.
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
