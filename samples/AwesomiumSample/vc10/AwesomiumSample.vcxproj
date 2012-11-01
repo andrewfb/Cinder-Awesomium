@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <AwesomiumFiles Include="..\..\..\build\bin\*.*" />
+    <AwesomiumFiles Include="..\..\..\build\bin\vc10\*.*" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="@(AwesomiumFiles->'%(Filename)%(Extension)')" />
   </ItemGroup>
+  <Target Name="AfterBuild">
+    <Copy SourceFiles="@(AwesomiumFiles)" DestinationFiles="@(AwesomiumFiles->'$(Configuration)\%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -68,7 +71,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder_d.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\..\..\lib;..\..\..\..\..\lib\msw;..\..\..\..\..\blocks\awesomium\build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\..\lib;..\..\..\..\..\lib\msw;..\..\..\..\..\blocks\awesomium\build\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -96,7 +99,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\..\..\lib;..\..\..\..\..\lib\msw;..\..\..\..\..\blocks\awesomium\build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\..\lib;..\..\..\..\..\lib\msw;..\..\..\..\..\blocks\awesomium\build\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -121,7 +124,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <Target Name="AfterBuild">
-    <Copy SourceFiles="@(AwesomiumFiles)" DestinationFiles="@(AwesomiumFiles->'$(Configuration)\%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
-  </Target>
 </Project>
