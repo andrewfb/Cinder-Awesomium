@@ -23,6 +23,8 @@ Add the Awesomium block as a submodule to your Cinder fork:
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
 * Add the Awesomium block: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/awesomium```
 
+Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\awesomium" folder.
+
 #####Adding the block to your project
 * Add the following folders to your include folders: 
  * ```cinder_master\blocks```
