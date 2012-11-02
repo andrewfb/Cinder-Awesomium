@@ -29,10 +29,10 @@ Alternatively, you can download the repository as a [ZIP-file](https://github.co
 * Add the following folders to your include folders: 
  * ```cinder_master\blocks```
  * ```cinder_master\blocks\awesomium\include``` 
-* Add the following folder to your library folders: ```cinder_master\blocks\awesomium\build\lib```
+* Add the following folder to your library folders: ```cinder_master\blocks\awesomium\build\lib\vc10```
 * Add the following .lib files to your dependencies: ```awesomium.lib```
 * Add this include statement at the top of your .cpp files: ```#include "awesomium/CinderAwesomium.h"```
-* Copy ALL files from ```cinder_master\blocks\awesomium\build\bin``` to your Debug and Release folders.
+* Copy ALL files from ```cinder_master\blocks\awesomium\build\bin\vc10``` to your Debug and Release folders.
 
 #####Copyright notice
 Copyright (c) 2010-2012, Paul Houx - All rights reserved.
