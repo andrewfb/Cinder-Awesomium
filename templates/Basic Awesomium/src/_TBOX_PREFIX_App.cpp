@@ -32,7 +32,8 @@ private:
 	Awesomium::WebCore*		mWebCorePtr;
 	Awesomium::WebView*		mWebViewPtr;
 	
-	gl::Texture				mTexture;
+	gl::Texture				mWebTexture;
+	gl::Texture				mLoadingTexture;
 
 	Font					mFont;
 };
@@ -83,7 +84,7 @@ void _TBOX_PREFIX_App::update()
 			fmt.setMagFilter( GL_NEAREST );
 
 			// get the texture using a handy conversion function
-			mTexture = ph::awesomium::toTexture( mWebViewPtr, fmt );
+			mWebTexture = ph::awesomium::toTexture( mWebViewPtr, fmt );
 		}
 		catch( const std::exception &e ) {
 			console() << e.what() << std::endl;
@@ -95,10 +96,10 @@ void _TBOX_PREFIX_App::draw()
 {
 	gl::clear(); 
 
-	if( mTexture )
+	if( mWebTexture )
 	{
 		gl::color( Color::white() );
-		gl::draw( mTexture );
+		gl::draw( mWebTexture );
 	}
 
 	if( mLoadingTexture && mWebViewPtr && mWebViewPtr->IsLoading() )
