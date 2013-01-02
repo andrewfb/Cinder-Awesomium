@@ -102,14 +102,15 @@ void _TBOX_PREFIX_App::draw()
 		gl::draw( mWebTexture );
 	}
 
+	// show spinner while loading 
 	if( mLoadingTexture && mWebViewPtr && mWebViewPtr->IsLoading() )
 	{
 		gl::pushModelView();
 
-		gl::translate( 0.5f * getWindowSize() );
+		gl::translate( 0.5f * Vec2f( getWindowSize() ) );
 		gl::scale( 0.5f, 0.5f );
 		gl::rotate( 180.0f * float( getElapsedSeconds() ) );
-		gl::translate( -0.5f * mLoadingTexture.getSize() );
+		gl::translate( -0.5f * Vec2f( mLoadingTexture.getSize() ) );
 		
 		gl::color( Color::white() );
 		gl::enableAlphaBlending();

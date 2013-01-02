@@ -12,7 +12,7 @@ Cinder's tool for setting up empty projects, TinderBox, has been revamped and no
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
-* Add the Awesomium block as a submodule: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
+* Add the Awesomium block to the blocks folder: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
 
 See for more information:
 https://forum.libcinder.org/#Topic/23286000001389463
@@ -23,7 +23,7 @@ Clone the Awesomium block to your Cinder folder:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
-* Clone the repository: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
+* Add the Awesomium block to the blocks folder: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
 
 Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\Awesomium" folder.
 
@@ -33,7 +33,7 @@ Add the Awesomium block as a submodule to your Cinder fork:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
-* Add the Awesomium block as a submodule: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
+* Add the Awesomium block to the blocks folder: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/Awesomium```
 
 
 #####Adding the block to your project

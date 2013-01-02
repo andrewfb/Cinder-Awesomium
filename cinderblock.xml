@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cinder>
 <block
-	name="CinderAwesomium"
+	name="Awesomium"
 	id="nl.cowlumbus.awesomium"
 	author="Paul Houx"
 	license="GPL, Commercial"
