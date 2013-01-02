@@ -6,6 +6,8 @@
 	author="Paul Houx"
 	license="GPL, Commercial"
 	summary="Awesomium library for Cinder"
+	url="https://github.com/paulhoux/Cinder-Awesomium"
+	git="https://github.com/paulhoux/Cinder-Awesomium.git"
 	>
 	<includePath>include</includePath>
 	<!--platform os="macosx">

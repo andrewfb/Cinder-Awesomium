@@ -7,21 +7,28 @@ Cinder block for the Awesomium web browser library.
 Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders. Please refer to the [Awesomium license](https://raw.github.com/paulhoux/Cinder-Awesomium/master/LICENSE.txt) for more information on licensing fees. Awesomium is NOT free software!
 
 
+#####Using this block with the latest "appRewrite" version of Cinder
+Cinder's tool for setting up empty projects, TinderBox, has been revamped and now supports a neat system for the management of plug-ins called Cinder Blocks. This repository supports this new feature. Simply add this repository as a submodule, as described below. It will then automatically be detected by TinderBox and you can add it to your projects.
+* Open a command window
+* Switch to the disk containing the Cinder root folder: ```d:```
+* Browse to the Cinder root folder: ```cd path\to\cinder_master```
+* Clone the repository: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/CinderAwesomium```
+
 #####Using this block with a release version of Cinder
 Clone the Awesomium block to your Cinder folder:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
-* Clone the repository: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/awesomium```
+* Clone the repository: ```git clone https://github.com/paulhoux/Cinder-Awesomium.git blocks/CinderAwesomium```
 
-Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\awesomium" folder.
+Alternatively, you can download the repository as a [ZIP-file](https://github.com/paulhoux/Cinder-Awesomium/zipball/master) and manually add the files to a "cinder_master\blocks\CinderAwesomium" folder.
 
 #####Using this block with a forked GIT version of Cinder
 Add the Awesomium block as a submodule to your Cinder fork:
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
 * Browse to the Cinder root folder: ```cd path\to\cinder_master```
-* Add the Awesomium block: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/awesomium```
+* Add the Awesomium block: ```git submodule add https://github.com/paulhoux/Cinder-Awesomium.git blocks/CinderAwesomium```
 
 #####Adding the block to your project
 * Add the following folders to your include folders: 
@@ -30,7 +37,7 @@ Add the Awesomium block as a submodule to your Cinder fork:
 * Add the following folder to your library folders: ```cinder_master\blocks\awesomium\build\lib```
 * Add the following .lib files to your dependencies: ```awesomium.lib```
 * Add this include statement at the top of your .cpp files: ```#include "awesomium/CinderAwesomium.h"```
-* Copy ALL files from ```cinder_master\blocks\awesomium\build\bin``` to your Debug and Release folders.
+* Copy ALL files from ```cinder_master\blocks\CinderAwesomium\build\bin``` to your Debug and Release folders.
 
 #####Copyright notice
 Copyright (c) 2010-2012, Paul Houx - All rights reserved.
