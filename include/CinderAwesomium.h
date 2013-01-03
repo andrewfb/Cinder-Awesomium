@@ -211,7 +211,7 @@ inline bool isDirty( Awesomium::WebView* webview )
 	if( ! webview ) throw EmptyPointerException();
 
 	Awesomium::BitmapSurface* surface = (Awesomium::BitmapSurface*) webview->surface();
-	if( ! surface ) throw EmptyPointerException();
+	if( ! surface ) return false; //throw EmptyPointerException();
 
 	return surface->is_dirty();
 }
@@ -227,7 +227,11 @@ Awesomium::WebKeyboardEvent toKeyEvent( ci::app::KeyEvent event, Awesomium::WebK
 
 	char* buf = new char[20];
 	Awesomium::GetKeyIdentifierFromVirtualKeyCode(evt.virtual_key_code, &buf);
+#if defined( CINDER_MSW )
 	strcpy_s<20>(evt.key_identifier, buf);
+#else
+	strncpy(evt.key_identifier, buf, 20);
+#endif
     delete[] buf;
 
 	evt.modifiers = 0;
