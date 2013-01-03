@@ -3,7 +3,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
 
-#include <CinderAwesomium.h>
+#include "CinderAwesomium.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -49,6 +49,10 @@ void _TBOX_PREFIX_App::setup()
 	// set Awesomium logging to verbose
 	Awesomium::WebConfig cnf;
 	cnf.log_level = Awesomium::kLogLevel_Verbose;
+#if defined( CINDER_MAC )
+	std::string frameworkPath = ( getAppPath() / "Contents" / "MacOS" ).string();
+	cnf.package_path = Awesomium::WebString::CreateFromUTF8( frameworkPath.c_str(), frameworkPath.size() );
+#endif
 
 	// initialize the Awesomium web engine
 	mWebCorePtr = Awesomium::WebCore::Initialize( cnf );
